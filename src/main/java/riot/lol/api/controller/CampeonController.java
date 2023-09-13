@@ -31,26 +31,28 @@ public class CampeonController {
     @PostMapping
     public void RegistarCampeon(@RequestBody @Valid DatoRegistroCampeon DatoRegistroCampeon) {
         campeonRepository.save(new Campeon(DatoRegistroCampeon));
-
+        // Método para registrar un nuevo campeón
     }
 
     @GetMapping
     public Page<DatoListadoCampeon> listasdoCampeon(@PageableDefault(size = 10) Pageable paginacion) { // Spring.domain.pageable
         // return medicoRepository.findAll(paginacion).map(DatoListadoMedico::new);
-        return campeonRepository.findAll(paginacion).map(DatoListadoCampeon::new); // Esto hace que solo traiga
-                                                                                   // los activos
+        return campeonRepository.findAll(paginacion).map(DatoListadoCampeon::new);
+        // Método para ver todos los campeones activos en la base de datos
     }
 
     @GetMapping("/region/{region}")
     public Page<DatoListadoCampeon> listarCampeonesPorRegion(@PathVariable String region,
             @PageableDefault(size = 10) Pageable paginacion) {
         return campeonRepository.findByRegion(region, paginacion).map(DatoListadoCampeon::new);
+        // Método para ver los campeones por región
     }
 
     @GetMapping("/carril/{carril}")
     public Page<DatoListadoCampeon> listarCampeonesPorCarril(@PathVariable String carril,
             @PageableDefault(size = 10) Pageable paginacion) {
         return campeonRepository.findByCarril(carril, paginacion).map(DatoListadoCampeon::new);
+        // Método para ver los campeones por carril
     }
 
     @PutMapping
@@ -58,6 +60,7 @@ public class CampeonController {
     public void actualizarCampeon(@RequestBody @Valid DatosActualizarCampeon datosActualizarCampeon) {
         Campeon campeon = campeonRepository.getReferenceById(datosActualizarCampeon.id());
         campeon.actualizarDatos(datosActualizarCampeon);
+        // Método para actualizar los datos de un campeón en la base de datos
     }
 
     @DeleteMapping("/{id}")
@@ -65,6 +68,7 @@ public class CampeonController {
     public void eliminarCampeon(@PathVariable Long id) {
         Campeon campeon = campeonRepository.getReferenceById(id);
         campeonRepository.delete(campeon);
+        // Método para eliminar un campeón de la base de datos
     }
 
     // public void eliminarMedico(@PathVariable Long id) {

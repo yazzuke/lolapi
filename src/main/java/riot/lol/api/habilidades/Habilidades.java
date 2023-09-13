@@ -1,5 +1,7 @@
 package riot.lol.api.habilidades;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,21 +19,22 @@ public class Habilidades {
     private String habilidade;
     private String habilidadr;
 
-    public Habilidades(DatosHabilidades habilidad) {
-        this.habilidadpasiva = habilidad.habilidadpasiva();
-        this.habilidadq = habilidad.habilidadq();
-        this.habilidade = habilidad.habilidade();
-        this.habilidadw = habilidad.habilidadw();
-        this.habilidadr = habilidad.habilidadr();
+    @Autowired
+    public Habilidades(DatosHabilidades datosHabilidades) {
+        this.habilidadpasiva = datosHabilidades.getHabilidadpasiva();
+        this.habilidadq = datosHabilidades.getHabilidadq();
+        this.habilidadw = datosHabilidades.getHabilidadw();
+        this.habilidadr = datosHabilidades.getHabilidadr();
+        this.habilidade = datosHabilidades.getHabilidade();
     }
 
-    public Habilidades actualizarDatos(DatosHabilidades habilidad) {
-        this.habilidadpasiva = habilidad.habilidadpasiva();
-        this.habilidadq = habilidad.habilidadq();
-        this.habildade = habilidad.habilidade();
-        this.habilidadw = habilidad.habilidadw();
-        this.habilidadr = habilidad.habilidadr();
+    public Habilidades actualizarDatos(HabilidadesMapper habilidadesMapper, DatosHabilidades habilidad) {
+        Habilidades habilidades = habilidadesMapper.toHabilidades(habilidad);
+        this.habilidadpasiva = habilidades.getHabilidadpasiva();
+        this.habilidadq = habilidades.getHabilidadq();
+        this.habilidadw = habilidades.getHabilidadw();
+        this.habilidade = habilidades.getHabilidade();
+        this.habilidadr = habilidades.getHabilidadr();
         return this;
     }
-
 }
