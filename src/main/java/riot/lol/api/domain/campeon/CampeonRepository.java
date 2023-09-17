@@ -1,4 +1,4 @@
-package riot.lol.api.campeon;
+package riot.lol.api.domain.campeon;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,4 +10,6 @@ public interface CampeonRepository extends JpaRepository<Campeon, Long> {
     Page<Campeon> findByRegion(String region, Pageable pageable);
 
     Page<Campeon> findByCarril(String carril, Pageable pageable);
+
+    Page<Campeon> findByNombreContainingIgnoreCase(String nombre, Pageable pageable);
 }

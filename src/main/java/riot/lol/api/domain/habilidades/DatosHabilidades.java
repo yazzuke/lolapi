@@ -1,4 +1,4 @@
-package riot.lol.api.habilidades;
+package riot.lol.api.domain.habilidades;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Value;

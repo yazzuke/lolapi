@@ -1,4 +1,4 @@
-package riot.lol.api.habilidades;
+package riot.lol.api.domain.habilidades;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

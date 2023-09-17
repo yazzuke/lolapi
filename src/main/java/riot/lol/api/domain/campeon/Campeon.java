@@ -1,11 +1,11 @@
-package riot.lol.api.campeon;
+package riot.lol.api.domain.campeon;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import riot.lol.api.habilidades.Habilidades;
+import riot.lol.api.domain.habilidades.Habilidades;
 
 @Table(name = "campeones")
 @Entity(name = "Campeon")

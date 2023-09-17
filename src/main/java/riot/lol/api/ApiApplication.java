@@ -1,4 +1,4 @@
-package riot.lol.api;
+	package riot.lol.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
