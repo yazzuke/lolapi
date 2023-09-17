@@ -1,6 +1,7 @@
-package riot.lol.api.campeon;
+package riot.lol.api.domain.campeon;
 
-import riot.lol.api.habilidades.Habilidades;
+import riot.lol.api.domain.habilidades.DatosHabilidades;
+import riot.lol.api.domain.habilidades.Habilidades;
 
 public record DatoListadoCampeon(Long id, String nombre, String region, String carril, String especialidad,
         Habilidades habilidades) {
